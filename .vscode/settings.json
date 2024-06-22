@@ -20,6 +20,8 @@
         "ble_hs.h": "c"
     },
     "cSpell.words": [
-        "ibeacon"
+        "eddystone",
+        "ibeacon",
+        "parasdefence"
     ]
 }
