@@ -1852,3 +1852,15 @@
 873	2869	7407455993111520	esp-idf/esp32/ld/esp32.project.ld	c6fc6c6f83b5e774
 2869	5302	7407456017526862	BLE_Example_for_Becon_and_eaddystone.elf	a5fa2d4f2fef78df
 5302	5540	7407456020057606	.bin_timestamp	ce66e1e4abdc8071
+7	6797	7407464037239671	build.ninja	635054338142639
+54	141	7407446748042181	bootloader-prefix/src/bootloader-stamp/bootloader-build	e08378e2016df712
+54	141	7407446748042181	bootloader/bootloader.elf	e08378e2016df712
+54	141	7407446748042181	bootloader/bootloader.bin	e08378e2016df712
+54	141	7407446748042181	bootloader/bootloader.map	e08378e2016df712
+57	375	7407464041445980	esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_app_desc.c.obj	3770750451665e66
+375	431	7407464041981899	esp-idf/app_update/libapp_update.a	6aede9e55588b8de
+432	809	7407464045714437	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	111bbb0520c69fe
+809	865	7407464046461097	esp-idf/main/libmain.a	27feb7441298acef
+865	2639	7407464064069848	esp-idf/esp32/ld/esp32.project.ld	c6fc6c6f83b5e774
+2639	5019	7407464087864778	BLE_Example_for_Becon_and_eaddystone.elf	a5fa2d4f2fef78df
+5020	5183	7407464089590600	.bin_timestamp	ce66e1e4abdc8071

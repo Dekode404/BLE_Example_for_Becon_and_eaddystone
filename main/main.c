@@ -15,7 +15,23 @@
 #include <host/ble_hs.h>                 /* This is ESP lib used for the ble host controller */
 #include <services/gap/ble_svc_gap.h>    /* This is ESP lib used for initiate the ble service */
 
+void BLE_app_on_sync(void)
+{
+}
+
+void Host_task(void *param)
+{
+    nimble_port_run(); /* Run the nimble port */
+}
+
 void app_main(void)
 {
-    printf("Hello world!\n");
+    ESP_ERROR_CHECK(nvs_flash_init()); /* Initialize NVS flash */
+
+    ESP_ERROR_CHECK(esp_nimble_hci_and_controller_init()); /* Initiate the Nimble BLE Hardware control interference and controller */
+
+    nimble_port_init(); /* Initiate the nimble port for the BLE */
+
+    ble_hs_cfg.sync_cb = BLE_app_on_sync; /* Register the callback function for the BLE */
+    nimble_port_freertos_init(Host_task); /* Crete the host task for the nimble application */
 }
