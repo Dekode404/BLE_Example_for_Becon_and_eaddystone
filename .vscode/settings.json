@@ -18,5 +18,8 @@
         "task.h": "c",
         "ble_svc_gap.h": "c",
         "ble_hs.h": "c"
-    }
+    },
+    "cSpell.words": [
+        "ibeacon"
+    ]
 }

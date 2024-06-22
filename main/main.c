@@ -17,6 +17,17 @@
 
 void BLE_app_on_sync(void)
 {
+    ble_addr_t BLE_address;             /* BLE address variable */
+    ble_hs_id_gen_rnd(1, &BLE_address); /* Generate a random BLE non-resolvable private address */
+    ble_hs_id_set_rnd(BLE_address.val); /* Set the generated random address */
+
+    uint8_t UUID_For_Advertise[16];                               /* Variable for 128-bit UUID to advertise */
+    memset(UUID_For_Advertise, 0x99, sizeof(UUID_For_Advertise)); /* Set the UUID to 0x99 */
+
+    ble_ibeacon_set_adv_data(UUID_For_Advertise, 2, 10, -50); /* Set the iBeacon advertising data */
+
+    struct ble_gap_adv_params adv_params = (struct ble_gap_adv_params){0};                 /* Advertising parameters */
+    ble_gap_adv_start(BLE_OWN_ADDR_RANDOM, NULL, BLE_HS_FOREVER, &adv_params, NULL, NULL); /* Start BLE advertising */
 }
 
 void Host_task(void *param)
@@ -32,6 +43,6 @@ void app_main(void)
 
     nimble_port_init(); /* Initiate the nimble port for the BLE */
 
-    ble_hs_cfg.sync_cb = BLE_app_on_sync; /* Register the callback function for the BLE */
-    nimble_port_freertos_init(Host_task); /* Crete the host task for the nimble application */
+    ble_hs_cfg.sync_cb = BLE_app_on_sync; /* Set the synchronization callback */
+    nimble_port_freertos_init(Host_task); /* Initialize NimBLE port with FreeRTOS */
 }
